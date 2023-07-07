@@ -1,5 +1,5 @@
 #!/bin/bash
-apt-get install curl wget net-tools -y
+apt-get install curl wget net-tools unzip -y
 mkdir -p /root/tmp/
 mkdir -p /etc/xray/
 mkdir -p /etc/caddy/
@@ -41,7 +41,7 @@ tar -xvf /root/tmp/caddy.tar.gz -C /etc/caddy/
 chmod +x /etc/caddy/caddy
 }
 function configcaddyfile(){
-cat << EOF > "/etc/caddy/Caddyfile1"
+cat << EOF > "/etc/caddy/Caddyfile"
 $domain {
 	@grpc {
 		protocol grpc
