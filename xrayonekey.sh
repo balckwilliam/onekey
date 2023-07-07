@@ -1,5 +1,5 @@
 #!/bin/bash
-apt-get install curl -y
+apt-get install curl wget net-tools -y
 mkdir -p /root/tmp/
 mkdir -p /etc/xray/
 mkdir -p /etc/caddy/
