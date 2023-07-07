@@ -120,6 +120,13 @@ cat <<EOF > "/etc/xray/config.json"
 }
 EOF
 }
+echo "正在开启BBR"
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
+echo "请查看BBR是否开启"
+lsmod | grep bbr
+sleep 3
 read -p "请输入域名，例如123.com：" domain
 if [ -z "$domain" ]; then
   echo "你需要输入一个域名"
