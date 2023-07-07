@@ -154,12 +154,17 @@ xrayconf $uid
 echo -e "安装服务中\n"
 installxrayservice
 installcaddyservice
+sleep 3
 systemctl start xray
-systemctl enable xray
+sleep 3
+systemctl status xray
+sleep 3
 systemctl start caddy
+sleep 3
+systemctl status caddy
+systemctl enable xray
 systemctl enable caddy
 rm -rf /root/tmp/
-
 echo -e 'V2Ray/XRay 协议:vless\n服务器地址:'$domain'\n端口:443\nUUID:'$uid'\nVLESS 加密:none\n传输协议:grpc\nserviceName:data\nTLS:Ture\nTLS Host:'$domain
 
 
