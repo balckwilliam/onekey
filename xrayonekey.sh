@@ -56,6 +56,8 @@ $domain {
 	file_server
 }
 EOF
+mkdir -p /var/www
+echo "hello world">/var/www/index.html
 }
 function installxrayservice(){
 cat << EOF > "/lib/systemd/system/xray.service"
