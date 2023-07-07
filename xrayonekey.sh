@@ -28,6 +28,7 @@ echo $version
 url="https://github.com/XTLS/Xray-core/releases/download/"$version"/Xray-linux-64.zip"
 wget -O /root/tmp/Xray.zip $url
 unzip -o /root/tmp/Xray.zip -d /etc/xray/
+chmod +x /etc/xray/xray
 }
 function downloadandinstallcaddy(){
 version=$(get_latest_version "caddyserver" "caddy")
@@ -37,6 +38,7 @@ url="https://github.com/caddyserver/caddy/releases/download/"$version"/caddy_"$v
 echo url
 wget -O /root/tmp/caddy.tar.gz $url
 tar -xvf /root/tmp/caddy.tar.gz -C /etc/caddy/
+chmod +x /etc/caddy/caddy
 }
 function configcaddyfile(){
 cat << EOF > "/etc/caddy/Caddyfile1"
